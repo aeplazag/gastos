@@ -1,0 +1,170 @@
+/*
+	Estilos CSS del Sistema de Gastos
+	Julio de 2009
+*/
+
+@import url(reset.css);
+@import url(text.css);
+@import url(960.css);
+@import url(superfish.css);
+@import url(layout.css);
+
+body {
+	font: 11px/165% 'Lucida Grande', Verdana, Helvetica, sans-serif;
+	color: #666666; 	
+	margin: 0; padding: 0 0 50px 0; 
+	
+	background-image: url(../images/fondopagina.png);
+	background-position: top left;
+	background-repeat: repeat;
+	background-color: #d7dee3;
+}
+
+/* Links */
+a:link, a:visited { 
+	text-decoration: none;
+	color: #921010;	
+}
+a:hover {
+	text-decoration: underline;
+}
+
+/* Headers */
+h1, h2, h3, h4 {
+	font: bold 1em/1.5em Georgia, 'Times New Roman', Times, serif;
+	color: #444;
+	margin: 0px; padding: 0px;
+}
+h1 { font-size: 3.7em; font-weight: normal; letter-spacing: -2px; }
+h2 { font-size: 2.8em; font-weight: normal; color: #663333; }
+h3 { font-size: 2em; font-weight: normal; letter-spacing: -0.5px; padding-top: 15px}
+h4 { font-size: 1.3em; }
+
+/* Lists */
+ul, ol {
+	margin: 10px 20px;
+	padding: 0 20px;
+}
+
+ul { list-style: disc; }
+ol { list-style: decimal; }
+
+dt {
+  font-weight: bold;
+  color: #708090;
+}
+dd {
+  padding-left: 25px; 
+}
+p, dl { padding: 10px 15px; }
+
+/* start - table */
+table {
+	border-collapse: collapse;
+	margin: 10px;		
+}
+tr { background: #fff; }
+tr.altrow { background: #F9F9F9;	}
+th, td {
+	text-align: left;			
+	border-width: 1px;
+  	border-style: solid;
+}
+th {
+	color: #7BA857;
+	background: #EFFAE6;
+	padding: .8em 1em;	
+  	border-color: #DFF4D5 #D3EFC3 #A7DF8A #D3EFC3;	
+}
+td {
+	border-color: #EFEFEF;	
+	padding: .7em 1em;	
+}	
+/* end - table */
+
+/* form elements */
+form {
+	margin: 10px; 
+	padding: 15px 25px 25px 20px; 
+	border: 1px solid #F0F0F0;
+	background: #f8f8f8;
+}
+form p {
+	border-bottom: 1px solid #E6E6E6;
+	padding: 12px 0 5px 0;	margin: 0;	
+	color: black;
+}
+label {
+	font-weight: bold;
+	color: #708090;
+}
+input, select, textarea {
+	margin: 5px 0;
+	padding: 5px;
+	color: #6A6969;
+	border-width: 1px;
+	border-style: solid;
+  	border-color: #d4d4d4 #ebebeb #ebebeb #d4d4d4; 	
+	font: 11px 'Lucida Grande', Verdana, Helvetica, sans-serif;
+}
+input:focus, select:focus, textarea:focus {
+	color: #600a0a;
+	background: #fdf5e6;
+}
+
+input.button { 
+	font: bold 12px Arial, Sans-serif; 
+	height: 30px;
+	margin: 0;
+	padding: 2px 3px; 
+	color: #fff;
+	background: #921010;
+	
+	border-width: 1px;
+  	border-style: solid;
+  	border-color: #B6DE8F #8DB836 #8DB836 #B6DE8F;
+}
+
+div.pagi_css {
+	margin-top: 15px;
+	overflow: hidden;
+}
+
+div.pagi_first, div.pagi_last, div.pagi_next, div.pagi_prev, div.pagi_cur, div.pagi_digit {
+	display: block;
+	float: left;
+	padding: 4px;
+	margin-right: 3px;
+	background-color: #8A7575;
+	font-size: 13px;
+	vertical-align: middle;
+	height: 21px;
+}
+
+div.pagi_first a:link, div.pagi_last a:link, div.pagi_next a:link, div.pagi_prev a:link, div.pagi_cur a:link, div.pagi_digit a:link {
+	color: white;
+}
+
+div.pagi_first a:visited, div.pagi_last a:visited, div.pagi_next a:visited, div.pagi_prev a:visited, div.pagi_cur a:visited, div.pagi_digit a:visited {
+	color: white;
+}
+
+div.pagi_last {
+}
+
+div.pagi_next {
+}
+
+div.pagi_prev {
+}
+
+div.pagi_cur {
+	color: black;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+div.pagi_digit {
+}
+
+
