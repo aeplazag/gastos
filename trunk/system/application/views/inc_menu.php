@@ -9,7 +9,7 @@
 				</ul>
 			</li>
 
-			<li><a href="<?=site_url('facturas')?>">Facturas</a></li>
+			<li><a href="<?=site_url('comisiones')?>">Comisiones y Ganancias</a></li>
 
 			<li><a href="<?=site_url('gastos')?>">Gastos</a></li>
 

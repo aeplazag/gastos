@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 05-08-2009 a las 16:41:01
+-- Tiempo de generación: 05-08-2009 a las 17:08:28
 -- Versión del servidor: 3.23.32
 -- Versión de PHP: 5.2.5
 
@@ -69,6 +69,33 @@ INSERT INTO `itexa_cliente` (`ID`, `NOMBRE`, `CUIT`, `DIRECCION`, `TELEFONO`, `C
 (8, 'Agapito Gil SA', '2123213', '', '', '', '', '', ''),
 (9, 'Yumanyi SRL', '231321', '', '', '', '', '', ''),
 (10, 'Monicaco Soft', '32132', '', '', '', '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `itexa_comisiones`
+--
+
+CREATE TABLE IF NOT EXISTS `itexa_comisiones` (
+  `ID` int(10) NOT NULL auto_increment,
+  `FECHAFACTURA` date NOT NULL,
+  `NROFAC` varchar(20) NOT NULL,
+  `IDCLIENTE` int(11) NOT NULL,
+  `PXCOSTO` float default NULL,
+  `PXVENTA` float NOT NULL,
+  `IVACOMPRA` float default NULL,
+  `IVAVENTA` float NOT NULL,
+  `COMISIONXVTA` float NOT NULL,
+  `GANANCIA` float NOT NULL,
+  `IVADEBITO` float NOT NULL,
+  `COMENTARIO` mediumtext NOT NULL,
+  PRIMARY KEY  (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Volcar la base de datos para la tabla `itexa_comisiones`
+--
+
 
 -- --------------------------------------------------------
 
