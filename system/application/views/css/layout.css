@@ -1,0 +1,43 @@
+/* Layout */
+
+/* commented backslash hack \*/ 
+html, body{height:100%;} 
+/* end hack */
+html,body {margin:0;padding:0}
+
+div#wrapper {
+	background-color: white;
+	min-height:100%;height:auto;background:white
+}
+* html #wrapper{height:100%;}/* ie6 and under*/
+
+div#logoitexa {
+	height:80px;
+	margin-bottom: 8px;
+}
+
+div#navbar {
+	background-color: #921010;
+	margin-bottom: 5px;
+	height:28px;
+}
+
+div#cuerpo {
+	padding-top: 10px;
+	padding-bottom: 10px;
+
+	min-height:500px; height:auto; background:white;
+}
+
+div#pie {
+	border-top: 1px dashed gray;
+	padding-top: 5px;
+
+	clear: both;
+height: 5%;
+border-width: 2px 0 0 0;
+border-style: dotted;
+border-color: #6F6F6F;
+vertical-align: bottom;
+}
+
