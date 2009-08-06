@@ -4,12 +4,17 @@
 
 			<li><a href="<?=site_url('clientes/listar')?>">Clientes</a>
 				<ul>
-					<li class="current"><a href="<?=site_url('clientes/listar')?>">Listar</a></li>
-					<li class="current"><a href="<?=site_url('clientes/agregar')?>">Agregar</a></li>
+					<li><a href="<?=site_url('clientes/listar')?>">Listar</a></li>
+					<li><a href="<?=site_url('clientes/agregar')?>">Agregar</a></li>
 				</ul>
 			</li>
 
-			<li><a href="<?=site_url('comisiones')?>">Comisiones y Ganancias</a></li>
+			<li><a href="<?=site_url('comisiones/listar')?>">Comisiones y Ganancias</a>
+				<ul>
+					<li><a href="<?=site_url('comisiones/listar')?>">Listar</a></li>
+					<li><a href="<?=site_url('comisiones/agregar')?>">Agregar</a></li>
+				</ul>
+			</li>
 
 			<li><a href="<?=site_url('gastos')?>">Gastos</a></li>
 
