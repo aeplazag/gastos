@@ -1,12 +1,19 @@
 -- phpMyAdmin SQL Dump
--- version 2.11.4
+-- version 2.11.9.2
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 05-08-2009 a las 17:08:28
--- Versión del servidor: 3.23.32
--- Versión de PHP: 5.2.5
+-- Tiempo de generación: 06-08-2009 a las 10:26:00
+-- Versión del servidor: 5.0.67
+-- Versión de PHP: 5.2.6
 
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Base de datos: `gastos`
@@ -18,6 +25,7 @@
 -- Estructura de tabla para la tabla `ci_sessions`
 --
 
+DROP TABLE IF EXISTS `ci_sessions`;
 CREATE TABLE IF NOT EXISTS `ci_sessions` (
   `session_id` varchar(40) collate utf8_bin NOT NULL default '0',
   `ip_address` varchar(16) collate utf8_bin NOT NULL default '0',
@@ -33,7 +41,8 @@ CREATE TABLE IF NOT EXISTS `ci_sessions` (
 
 INSERT INTO `ci_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
 ('62d011c5c18984bd6a830361ad65b376', '127.0.0.1', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; es-ES; rv', 1249494391, 0x613a393a7b733a31303a2244585f757365725f6964223b733a313a2234223b733a31313a2244585f757365726e616d65223b733a343a226b696b65223b733a31303a2244585f726f6c655f6964223b733a313a2231223b733a31323a2244585f726f6c655f6e616d65223b733a343a2255736572223b733a31383a2244585f706172656e745f726f6c65735f6964223b613a303a7b7d733a32303a2244585f706172656e745f726f6c65735f6e616d65223b613a303a7b7d733a31333a2244585f7065726d697373696f6e223b613a303a7b7d733a32313a2244585f706172656e745f7065726d697373696f6e73223b613a303a7b7d733a31323a2244585f6c6f676765645f696e223b733a313a2231223b7d),
-('d7cf37e74dcbe288d7bf4e19001f56c3', '127.0.0.1', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; es-ES; rv', 1249419485, 0x613a393a7b733a31303a2244585f757365725f6964223b733a313a2234223b733a31313a2244585f757365726e616d65223b733a343a226b696b65223b733a31303a2244585f726f6c655f6964223b733a313a2231223b733a31323a2244585f726f6c655f6e616d65223b733a343a2255736572223b733a31383a2244585f706172656e745f726f6c65735f6964223b613a303a7b7d733a32303a2244585f706172656e745f726f6c65735f6e616d65223b613a303a7b7d733a31333a2244585f7065726d697373696f6e223b613a303a7b7d733a32313a2244585f706172656e745f7065726d697373696f6e73223b613a303a7b7d733a31323a2244585f6c6f676765645f696e223b733a313a2231223b7d);
+('d7cf37e74dcbe288d7bf4e19001f56c3', '127.0.0.1', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; es-ES; rv', 1249419485, 0x613a393a7b733a31303a2244585f757365725f6964223b733a313a2234223b733a31313a2244585f757365726e616d65223b733a343a226b696b65223b733a31303a2244585f726f6c655f6964223b733a313a2231223b733a31323a2244585f726f6c655f6e616d65223b733a343a2255736572223b733a31383a2244585f706172656e745f726f6c65735f6964223b613a303a7b7d733a32303a2244585f706172656e745f726f6c65735f6e616d65223b613a303a7b7d733a31333a2244585f7065726d697373696f6e223b613a303a7b7d733a32313a2244585f706172656e745f7065726d697373696f6e73223b613a303a7b7d733a31323a2244585f6c6f676765645f696e223b733a313a2231223b7d),
+('95f696c0f514f0816ca2ba864cf6e4db', '127.0.0.1', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; es-AR; rv', 1249565034, 0x613a393a7b733a31303a2244585f757365725f6964223b733a313a2234223b733a31313a2244585f757365726e616d65223b733a343a226b696b65223b733a31303a2244585f726f6c655f6964223b733a313a2231223b733a31323a2244585f726f6c655f6e616d65223b733a343a2255736572223b733a31383a2244585f706172656e745f726f6c65735f6964223b613a303a7b7d733a32303a2244585f706172656e745f726f6c65735f6e616d65223b613a303a7b7d733a31333a2244585f7065726d697373696f6e223b613a303a7b7d733a32313a2244585f706172656e745f7065726d697373696f6e73223b613a303a7b7d733a31323a2244585f6c6f676765645f696e223b733a313a2231223b7d);
 
 -- --------------------------------------------------------
 
@@ -41,6 +50,7 @@ INSERT INTO `ci_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activ
 -- Estructura de tabla para la tabla `itexa_cliente`
 --
 
+DROP TABLE IF EXISTS `itexa_cliente`;
 CREATE TABLE IF NOT EXISTS `itexa_cliente` (
   `ID` int(5) NOT NULL auto_increment,
   `NOMBRE` varchar(250) NOT NULL,
@@ -73,10 +83,11 @@ INSERT INTO `itexa_cliente` (`ID`, `NOMBRE`, `CUIT`, `DIRECCION`, `TELEFONO`, `C
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `itexa_comisiones`
+-- Estructura de tabla para la tabla `itexa_comision`
 --
 
-CREATE TABLE IF NOT EXISTS `itexa_comisiones` (
+DROP TABLE IF EXISTS `itexa_comision`;
+CREATE TABLE IF NOT EXISTS `itexa_comision` (
   `ID` int(10) NOT NULL auto_increment,
   `FECHAFACTURA` date NOT NULL,
   `NROFAC` varchar(20) NOT NULL,
@@ -93,7 +104,7 @@ CREATE TABLE IF NOT EXISTS `itexa_comisiones` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
--- Volcar la base de datos para la tabla `itexa_comisiones`
+-- Volcar la base de datos para la tabla `itexa_comision`
 --
 
 
@@ -103,6 +114,7 @@ CREATE TABLE IF NOT EXISTS `itexa_comisiones` (
 -- Estructura de tabla para la tabla `login_attempts`
 --
 
+DROP TABLE IF EXISTS `login_attempts`;
 CREATE TABLE IF NOT EXISTS `login_attempts` (
   `id` int(11) NOT NULL auto_increment,
   `ip_address` varchar(40) collate utf8_bin NOT NULL,
@@ -121,6 +133,7 @@ CREATE TABLE IF NOT EXISTS `login_attempts` (
 -- Estructura de tabla para la tabla `permissions`
 --
 
+DROP TABLE IF EXISTS `permissions`;
 CREATE TABLE IF NOT EXISTS `permissions` (
   `id` int(11) NOT NULL auto_increment,
   `role_id` int(11) NOT NULL,
@@ -139,6 +152,7 @@ CREATE TABLE IF NOT EXISTS `permissions` (
 -- Estructura de tabla para la tabla `roles`
 --
 
+DROP TABLE IF EXISTS `roles`;
 CREATE TABLE IF NOT EXISTS `roles` (
   `id` int(11) NOT NULL auto_increment,
   `parent_id` int(11) NOT NULL default '0',
@@ -160,6 +174,7 @@ INSERT INTO `roles` (`id`, `parent_id`, `name`) VALUES
 -- Estructura de tabla para la tabla `users`
 --
 
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL auto_increment,
   `role_id` int(11) NOT NULL default '1',
@@ -185,7 +200,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 INSERT INTO `users` (`id`, `role_id`, `username`, `password`, `email`, `banned`, `ban_reason`, `newpass`, `newpass_key`, `newpass_time`, `last_ip`, `last_login`, `created`, `modified`) VALUES
 (1, 2, 'admin', '$1$i75.Do4.$ROPRZjZzDx/JjqeVtaJLW.', 'admin@localhost.com', 0, NULL, NULL, NULL, NULL, '127.0.0.1', '2008-11-30 04:56:38', '2008-11-30 04:56:32', '2008-11-30 04:56:38'),
 (2, 1, 'user', '$1$bO..IR4.$CxjJBjKJ5QW2/BaYKDS7f.', 'user@localhost.com', 0, NULL, NULL, NULL, NULL, '127.0.0.1', '2008-12-01 14:04:14', '2008-12-01 14:01:53', '2008-12-01 14:04:14'),
-(4, 1, 'kike', '$1$R84.GA..$EtvSumq7Z1lFvATQCF5UT/', 'kike@itexa.com.ar', 0, NULL, NULL, NULL, NULL, '127.0.0.1', '2009-08-05 14:46:44', '2009-07-30 18:31:51', '2009-08-05 14:46:44');
+(4, 1, 'kike', '$1$R84.GA..$EtvSumq7Z1lFvATQCF5UT/', 'kike@itexa.com.ar', 0, NULL, NULL, NULL, NULL, '127.0.0.1', '2009-08-06 09:27:26', '2009-07-30 18:31:51', '2009-08-06 09:27:26');
 
 -- --------------------------------------------------------
 
@@ -193,6 +208,7 @@ INSERT INTO `users` (`id`, `role_id`, `username`, `password`, `email`, `banned`,
 -- Estructura de tabla para la tabla `user_autologin`
 --
 
+DROP TABLE IF EXISTS `user_autologin`;
 CREATE TABLE IF NOT EXISTS `user_autologin` (
   `key_id` char(32) collate utf8_bin NOT NULL,
   `user_id` mediumint(8) NOT NULL default '0',
@@ -213,6 +229,7 @@ CREATE TABLE IF NOT EXISTS `user_autologin` (
 -- Estructura de tabla para la tabla `user_profile`
 --
 
+DROP TABLE IF EXISTS `user_profile`;
 CREATE TABLE IF NOT EXISTS `user_profile` (
   `id` int(11) NOT NULL auto_increment,
   `user_id` int(11) NOT NULL,
@@ -236,6 +253,7 @@ INSERT INTO `user_profile` (`id`, `user_id`, `country`, `website`) VALUES
 -- Estructura de tabla para la tabla `user_temp`
 --
 
+DROP TABLE IF EXISTS `user_temp`;
 CREATE TABLE IF NOT EXISTS `user_temp` (
   `id` int(11) NOT NULL auto_increment,
   `username` varchar(255) collate utf8_bin NOT NULL,
