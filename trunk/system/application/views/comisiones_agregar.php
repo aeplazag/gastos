@@ -3,13 +3,20 @@
 ?>
 
 <script type="text/javascript">
-	$(function() {
-		$('#campofechafactura').datepicker({
-			showButtonPanel: true,
-			regional: es
-		});
-		
+	$(document).ready(function(){
+		$.datepicker.setDefaults($.extend({showMonthAfterYear: false}, $.datepicker.regional['es']));		
+		$("#campofechafactura").datepicker(
+			$.datepicker.regional['es']
+		);
 	});
+/*		
+		
+		$("#locale").change(function() {
+			$('#datepicker').datepicker('option', $.extend({showMonthAfterYear: false},
+				$.datepicker.regional[$(this).val()]));
+			});
+		});
+*/		
 </script>
 
 
@@ -23,7 +30,7 @@
 			echo form_open($this->uri->uri_string());
 		?>
 			<dl>
-				<dt>ARREGLAAAAAAAAAAAAAAAAAAARRR !!Fecha de la Factura:</dt>
+				<dt>Fecha de la Factura:</dt>
 					<dd><input tabindex="1" name="campofechafactura" type="text" class="validate[required,length[0,10]]" id="campofechafactura" size="20" /></dd>
 
 				<dt>Numero de Factura:</dt>
