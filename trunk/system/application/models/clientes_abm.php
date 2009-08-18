@@ -47,6 +47,12 @@ class clientes_abm extends Model {
 		}
 		return $resultado;
 	}
+	
+	function listado_clientes () {
+		$this->db->order_by("NOMBRE","ASC");
+		$query = $this->db->query("SELECT ID,NOMBRE,CUIT FROM itexa_cliente");
+		return $query;
+	}
 }
 
 ?>
