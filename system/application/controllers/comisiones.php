@@ -54,7 +54,9 @@ class Comisiones extends Controller {
 				$this->load->view('comisiones_agregar_post');
 			}
 			else {
-				$this->load->view('comisiones_agregar');
+				$this->load->model('clientes_abm');
+				$data["arreglo_clientes"] = $this->clientes_abm->listado_clientes();
+				$this->load->view('comisiones_agregar', $data);
 			}
 		}
 		else {
