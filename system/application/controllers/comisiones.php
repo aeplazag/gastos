@@ -38,14 +38,14 @@ class Comisiones extends Controller {
 			if (isset($_POST["campofechafactura"])) {
 				$post = array (
 					'campofechafactura' => $_POST["campofechafactura"],
-					'camponrofac' => $_POST["camponrofac"],
-					'campoidcliente' => $_POST["campoidcliente"],
-					'campopxcosto' => $_POST["campopxcosto"],
-					'campopxventa' => $_POST["campopxventa"],
+					'camponumerofac' => $_POST["camponumerofac"],
+					'campocliente' => $_POST["campocliente"],
+					'campopreciocosto' => $_POST["campopreciocosto"],
+					'campoprecioventa' => $_POST["campoprecioventa"],
 					'campoivacompra' => $_POST["campoivacompra"],
 					'campoivaventa' => $_POST["campoivaventa"],
 					'campocomisionxvta' => $_POST['campocomisionxvta'],
-					'campoganancia' => $_POST['campoganancia'],
+					'campogananciacash' => $_POST['campogananciacash'],
 					'campoivadebito' => $_POST['campoivadebito'],
 					'campocomentario' => $_POST['campocomentario']
 				);

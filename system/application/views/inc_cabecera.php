@@ -18,6 +18,7 @@
 <script type="text/javascript" src="<?=$dir_views?>js/hoverIntent.js"></script>
 <script type="text/javascript" src="<?=$dir_views?>js/i18n/jquery-ui-i18n.min.js"></script>
 <script type="text/javascript" src="<?=$dir_views?>js/jquery.validationEngine.js"></script>
+<script type="text/javascript" src="<?=$dir_views?>js/jquery.varios.js"></script>
 <!--<script type="text/javascript" src="<?=$dir_views?>js/jquery.validationEngine-es.js"></script>-->
 
 <script type="text/javascript">
