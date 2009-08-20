@@ -12,6 +12,58 @@
 		$('#campofechafactura').datepicker('option', 'dateFormat', 'dd-mm-yy');		
 */		
 	});
+	
+	$(document).ready(function(){
+		$("#butCalc").click(function() { 
+			
+			//Debo verificar los valores de los campos primero
+			var campopreciocosto = $("#campopreciocosto");
+			var campoprecioventa = $("#campoprecioventa");
+			var campoivacompra = $("#campoivacompra");
+			var campoivaventa = $("#campoivaventa");
+			if ( (campopreciocosto.val() == "") || (campoprecioventa.val() == "") || (campoivacompra.val() == "") || (campoivaventa.val() == "")) {
+				alert("Debe completar los campos faltantes!");
+				if (campopreciocosto.val() == "") { campopreciocosto.focus(); }
+				else if (campoprecioventa.val() == "") { campoprecioventa.focus(); }
+				else if (campoivacompra.val() == "") { campoivacompra.focus(); }
+				else if (campoivaventa.val() == "") { campoivaventa.focus(); }
+			}
+			else {
+				
+				//Verifico que los valores sean numeros flotantes (por mas que
+				//la libreria de validacion ya lo haya verificado)
+				var c1 = parseFloat( campopreciocosto.val() );
+				var c2 = parseFloat( campoprecioventa.val() );
+				var c3 = parseFloat( campoivacompra.val() );
+				var c4 = parseFloat( campoivaventa.val() );
+
+				/*
+				alert ("Valores: " + c1 +" | "+ c2 +" | "+ c3 +" | "+ c4);
+				*/
+				
+				var v1 = parseFloat((((c2-c4)-(c1-c3))*70)/100).toFixed(2);;
+				var v2 = parseFloat((((c2-c4)-(c1-c3))*30)/100).toFixed(2);
+				var v3 = parseFloat((c4-c3)).toFixed(2);
+				
+				$("#campocomisionxvta").val(v1) .attr({style:"background-color:lime;"});
+				$("#campogananciacash").val(v2) .attr({style:"background-color:lime;"});
+				$("#campoivadebito").val(v3) .attr({style:"background-color:lime;"});
+		
+				$("#butCalc").attr({ 
+					disabled: "disabled",
+					style: "background-color:gray; color:white;"
+				});
+
+				$("#butAdd").attr({ 
+					style: "background-color:lime; color:black;"
+				});
+				$("#butAdd").removeAttr("disabled")
+					.focus() .val("Agregar Comision");
+			}
+			
+		});
+	});
+	
 </script>
 
 
@@ -19,7 +71,7 @@
 
 		<h2>Comisiones - Agregar</h2>
 		
-		<fieldset><legend>Por favor complete el siguiente formulario. Tenga en cuenta los campos obligatorios.</legend>
+		<fieldset><legend>Por favor complete el siguiente formulario. Tenga en cuenta los campos obligatorios.<br />Los numeros deben ser ingresados sin simbolo ($ u otro) y con coma en caso de ser numeros con decimal</legend>
 		<?php 
 			//$att = array('class' => 'formular', 'id' => 'formagregar');
 			echo form_open($this->uri->uri_string());
@@ -33,8 +85,8 @@
 					
 					
 				<dt>Cliente:</dt>
-					<dd><select tabindex="3" name="campocliente" id="campocliente">
-					  <option value="-1">== SELECCIONAR CLIENTE ==</option>
+					<dd><select tabindex="3" name="campocliente" id="campocliente" class="validate[required]">
+					  <option value="">== SELECCIONAR CLIENTE ==</option>
 				<?
 					foreach ($arreglo_clientes->result_array() as $row) {
 						//print_r ($row);
@@ -44,25 +96,25 @@
 					</select></dd>	
 					
 				<dt>Precio de Costo:</dt>
-					<dd><input tabindex="4" name="campopreciocosto" type="text" class="validate[required,length[0,30]]" id="campopreciocosto" size="15" /></dd>
+					<dd><input tabindex="4" name="campopreciocosto" type="text" class="validate[required,custom[numeroFloat],length[0,20]]" id="campopreciocosto" size="15" /></dd>
 
 				<dt>Precio de Venta:</dt>
-					<dd><input tabindex="5" name="campoprecioventa" type="text" class="validate[required,length[0,30]]" id="campoprecioventa" size="15" /></dd>
+					<dd><input tabindex="5" name="campoprecioventa" type="text" class="validate[required,custom[numeroFloat],length[0,20]]" id="campoprecioventa" size="15" /></dd>
 
 				<dt>IVA Compra:</dt>
-					<dd><input tabindex="6" name="campoivacompra" type="text" class="validate[required,length[0,30]]" id="campoivacompra" size="15" /></dd>
+					<dd><input tabindex="6" name="campoivacompra" type="text" class="validate[required,custom[numeroFloat],length[0,20]]" id="campoivacompra" size="15" /></dd>
 
 				<dt>IVA Venta:</dt>
-					<dd><input tabindex="7" name="campoivaventa" type="text" class="validate[required,length[0,30]]" id="campoivaventa" size="15" /></dd>
+					<dd><input tabindex="7" name="campoivaventa" type="text" class="validate[required,custom[numeroFloat],length[0,20]]" id="campoivaventa" size="15" /></dd>
 					
 				<dt>** Comision por Venta:</dt>	
-					<dd><input tabindex="8" name="campocomisionxvta" type="text" class="validate[optional,length[0,30]]" id="campocomisionxvta" size="15" disabled="disabled" /></dd>
+					<dd><input tabindex="8" name="campocomisionxvta" type="text" class="validate[required,custom[numeroFloat],length[0,20]]" id="campocomisionxvta" size="15" disabled="disabled" /></dd>
 
 				<dt>** Ganancia Cash:</dt>
-					<dd><input tabindex="8" name="campogananciacash" type="text" class="validate[optional,length[0,30]]" id="campogananciacash" size="15" disabled="disabled" /></dd>
+					<dd><input tabindex="8" name="campogananciacash" type="text" class="validate[required,custom[numeroFloat],length[0,20]]" id="campogananciacash" size="15" disabled="disabled" /></dd>
 
 				<dt>** IVA Debito:</dt>
-					<dd><input tabindex="9" name="campoivadebito" type="text" class="validate[optional,length[0,30]]" id="campoivadebito" size="15" disabled="disabled" /></dd>
+					<dd><input tabindex="9" name="campoivadebito" type="text" class="validate[required,custom[numeroFloat],length[0,20]]" id="campoivadebito" size="15" disabled="disabled" /></dd>
 
 				<dt>Comentario / Estado:</dt>
 					<dd>
@@ -70,7 +122,7 @@
 					</dd>
 					
 				<dt>&nbsp;</dt>	
-					<dd><input tabindex="9" name="butAdd" type="submit" id="butAdd" value="Agregar" /></dd>
+					<dd><input tabindex="10" name="butCalc" type="button" id="butCalc" value="Calcular Valores" />&nbsp;&nbsp;&nbsp;<input tabindex="11" name="butAdd" type="submit" id="butAdd" value="No puede Agregar Aun" disabled="disabled" style="background-color:gray; color:white;" /></dd>
 					
 			</dl>
 		<?php echo form_close()?>

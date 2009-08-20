@@ -12,14 +12,14 @@ class comisiones_abm extends Model {
 		$this->load->database();
 		$datos = array (
 			'FECHAFACTURA' => $arreglo_post["campofechafactura"],
-			'NROFAC' => $arreglo_post["camponrofac"],
-			'IDCLIENTE' => $arreglo_post["campoidcliente"],
-			'PXCOSTO' => $arreglo_post["campopxcosto"],
-			'PXVENTA' => $arreglo_post["campopxventa"],
+			'NROFAC' => $arreglo_post["camponumerofac"],
+			'IDCLIENTE' => $arreglo_post["campocliente"],
+			'PXCOSTO' => $arreglo_post["campopreciocosto"],
+			'PXVENTA' => $arreglo_post["campoprecioventa"],
 			'IVACOMPRA' => $arreglo_post["campoivacompra"],
 			'IVAVENTA' => $arreglo_post['campoivaventa'],
 			'COMISIONXVTA' => $arreglo_post['campocomisionxvta'],
-			'GANANCIA' => $arreglo_post['campoganancia'],
+			'GANANCIA' => $arreglo_post['campogananciacash'],
 			'IVADEBITO' => $arreglo_post['campoivadebito'],
 			'COMENTARIO' => $arreglo_post['campocomentario']
 		);
