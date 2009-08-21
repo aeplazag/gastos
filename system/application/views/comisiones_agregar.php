@@ -14,13 +14,35 @@
 	});
 	
 	$(document).ready(function(){
-		$("#butCalc").click(function() { 
+	
+		var campopreciocosto = $("#campopreciocosto");
+		var campoprecioventa = $("#campoprecioventa");
+		var campoivacompra = $("#campoivacompra");
+		var campoivaventa = $("#campoivaventa");
+		var campocomisionxvta = $("#campocomisionxvta");
+		var campogananciacash = $("#campogananciacash");
+		var campoivadebito = $("#campoivadebito");
+
+		$("#campopreciocosto, #campoprecioventa, #campoivacompra, #campoivaventa")
+			.bind("blur change click dblclick focus keydown keyup mouseenter mouseleave",
+			function(event) { 
+				if ((campopreciocosto.val() == "") || (campoprecioventa.val() == "") || (campoivacompra.val() == "") || (campoivaventa.val() == "")) {			
+					$("#butAdd").attr("disabled","disabled") .attr("style", "background-color:gray; color:white;") .val("No puede Agregar Aun");
+				}
+		});
+
+/*
+		$("#campocomisionxvta, #campogananciacash, #campoivadebito")
+			.bind("blur change click dblclick focus keydown keyup mouseenter mouseleave",
+			function(event) { 
+				if ((campocomisionxvta.val() != "") && (campogananciacash.val() != "") && (campoivadebito.val() != "")) {			
+					$("#butAdd").removeAttr("disabled") .attr("style", "background-color:lime; color:black;") .focus() .val("Agregar Comision");
+				}
+		});
+*/		
 			
+		$("#butCalc").click(function() { 			
 			//Debo verificar los valores de los campos primero
-			var campopreciocosto = $("#campopreciocosto");
-			var campoprecioventa = $("#campoprecioventa");
-			var campoivacompra = $("#campoivacompra");
-			var campoivaventa = $("#campoivaventa");
 			if ( (campopreciocosto.val() == "") || (campoprecioventa.val() == "") || (campoivacompra.val() == "") || (campoivaventa.val() == "")) {
 				alert("Debe completar los campos faltantes!");
 				if (campopreciocosto.val() == "") { campopreciocosto.focus(); }
@@ -48,7 +70,14 @@
 				$("#campocomisionxvta").val(v1) .attr({style:"background-color:lime;"});
 				$("#campogananciacash").val(v2) .attr({style:"background-color:lime;"});
 				$("#campoivadebito").val(v3) .attr({style:"background-color:lime;"});
-		
+
+				$("#campocomisionxvta1").val(v1);
+				$("#campogananciacash1").val(v2);
+				$("#campoivadebito1").val(v3);
+				
+				$("#butAdd").removeAttr("disabled") .attr("style", "background-color:lime; color:black;") .focus() .val("Agregar Comision");
+
+/*		
 				$("#butCalc").attr({ 
 					disabled: "disabled",
 					style: "background-color:gray; color:white;"
@@ -57,8 +86,10 @@
 				$("#butAdd").attr({ 
 					style: "background-color:lime; color:black;"
 				});
+
 				$("#butAdd").removeAttr("disabled")
 					.focus() .val("Agregar Comision");
+*/				
 			}
 			
 		});
@@ -120,6 +151,10 @@
 					<dd>
 					  <textarea name="campocomentario" cols="40" rows="6" id="campocomentario" tabindex="10"></textarea>
 					</dd>
+					
+				<input name="campocomisionxvta1" id="campocomisionxvta1" type="hidden" value="" />	
+				<input name="campogananciacash1" id="campogananciacash1" type="hidden" value="" />	
+				<input name="campoivadebito1" id="campoivadebito1" type="hidden" value="" />	
 					
 				<dt>&nbsp;</dt>	
 					<dd><input tabindex="10" name="butCalc" type="button" id="butCalc" value="Calcular Valores" />&nbsp;&nbsp;&nbsp;<input tabindex="11" name="butAdd" type="submit" id="butAdd" value="No puede Agregar Aun" disabled="disabled" style="background-color:gray; color:white;" /></dd>

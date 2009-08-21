@@ -44,9 +44,9 @@ class Comisiones extends Controller {
 					'campoprecioventa' => $_POST["campoprecioventa"],
 					'campoivacompra' => $_POST["campoivacompra"],
 					'campoivaventa' => $_POST["campoivaventa"],
-					'campocomisionxvta' => $_POST['campocomisionxvta'],
-					'campogananciacash' => $_POST['campogananciacash'],
-					'campoivadebito' => $_POST['campoivadebito'],
+					'campocomisionxvta' => $_POST['campocomisionxvta1'],
+					'campogananciacash' => $_POST['campogananciacash1'],
+					'campoivadebito' => $_POST['campoivadebito1'],
 					'campocomentario' => $_POST['campocomentario']
 				);
 				$this->load->model('comisiones_abm');
