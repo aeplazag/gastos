@@ -167,4 +167,76 @@ div.pagi_cur {
 div.pagi_digit {
 }
 
+/* ############# TABLAS ZEBRA ################# */
 
+/*
+#rounded-corner
+{
+	text-align: left;
+	border-collapse: collapse;
+}
+#rounded-corner thead th.rounded-company
+{
+	background: #b9c9fe url('../images/tabla/left.png') left -1px no-repeat;
+}
+#rounded-corner thead th.rounded-q4
+{
+	background: #b9c9fe url('../images/tabla/right.png') right -1px no-repeat;
+}
+#rounded-corner th
+{
+	padding: 8px;
+	font-weight: normal;
+	font-size: 13px;
+	font-weight:bold;
+	color:white;
+	background: #b9c9fe;
+}
+#rounded-corner td
+{
+	padding: 8px;
+	background: #e8edff;
+	border-top: 1px solid #fff;
+}
+#rounded-corner tfoot td.rounded-foot-left
+{
+	background: #e8edff url('../images/tabla/botleft.png') left bottom no-repeat;
+}
+#rounded-corner tfoot td.rounded-foot-right
+{
+	background: #e8edff url('../images/tabla/botright.png') right bottom no-repeat;
+}
+#rounded-corner tbody tr:hover td
+{
+	background: #d0dafd;
+}
+*/
+
+tr.zEven td
+{
+	border-left:1px solid #D9D9D9;
+	border-bottom:1px solid #D9D9D9;
+	border-right:1px solid #D9D9D9;
+	background-color:#edf3fe;
+	padding:8px;
+}
+
+tr.zOdd td,.zOddTd
+{
+	border-left:1px solid #D9D9D9;
+	border-bottom:1px solid #D9D9D9;
+	border-right:1px solid #D9D9D9;
+	background-color:#fff;
+	padding:8px;
+}
+
+tr.zSelected td,.zSelectedTd
+{
+	background-color:#5174ae;
+	color:#fff;
+	border-left:1px solid #346DBE;
+	border-bottom:1px solid #7DAAEA;
+	padding:8px;
+	font-weight:bold;
+}
+*/
