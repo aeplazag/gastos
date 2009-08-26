@@ -10,23 +10,39 @@
 		
 		<div style="width:95%;">
 
-		<table width="100%" border="0" cellspacing="2" cellpadding="2">
+		<table width="100%" border="0" class="zebra">
+		
+		<thead>	
+        <tr>
+          <td>&nbsp;</td>
+          <td>Fecha de Factura</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+		</thead>
+		
+		<tbody>
+				
 		<?
 			foreach ($resultados->result() as $row) {
 		?>
-			
-  <tr>
-    <td width="30">&nbsp;</td>
-    <td width="300"><?=$row->FECHAFACTURA?></td>
-    <td width="100"><?=$row->NROFAC?></td>
-    <td width="100"><?=$row->PXCOSTO?></td>
-    <td width="100"><?=$row->PXVENTA?></td>
-    <td><?=$row->IVACOMPRA?></td>
-  </tr>
+				
+        <tr>
+			<td width="30">&nbsp;</td>
+			<td width="300"><?=$row->FECHAFACTURA?></td>
+			<td width="100"><?=$row->NROFAC?></td>
+			<td width="100"><?=$row->PXCOSTO?></td>
+			<td width="100"><?=$row->PXVENTA?></td>
+			<td><?=$row->IVACOMPRA?></td>
+  		</tr>
 
 		<?
 			}
 		?>
+		
+		</tbody>
 		</table>
 
 		</div>

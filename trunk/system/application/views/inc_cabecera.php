@@ -22,10 +22,21 @@
 <!--<script type="text/javascript" src="<?=$dir_views?>js/jquery.validationEngine-es.js"></script>-->
 
 <script type="text/javascript">
-	// initialise plugins
+
+	function stripeTables () {
+		$('table.zebra tbody tr:odd').addClass('zOdd');
+		$('table.zebra tbody tr:even').addClass('zEven');
+		$("table.zebra thead tr:first-child").addClass("zSelected");
+	}
 
 	jQuery(function(){
 		jQuery('ul.sf-menu').superfish();
+		/*
+		$("table.zebra thead > tr:first-child()").addClass("zSelected");
+		$("table.zebra tbody > tr:nth-child(odd)").addClass("zOdd");
+		$("table.zebra tbody > tr:nth-child(even)").addClass("zEven");
+		*/
+		stripeTables();
 	});
 
 /*
