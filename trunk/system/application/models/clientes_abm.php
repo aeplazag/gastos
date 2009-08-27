@@ -53,6 +53,12 @@ class clientes_abm extends Model {
 		$query = $this->db->query("SELECT ID,NOMBRE,CUIT FROM itexa_cliente");
 		return $query;
 	}
+
+	function datos_cliente ($param_id) {
+		$sql = "SELECT * FROM itexa_cliente WHERE ID = ?";
+		$query = $this->db->query($sql, array($param_id)); 
+		return $query;
+	}
 }
 
 ?>
