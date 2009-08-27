@@ -39,7 +39,7 @@
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array('DX_Auth');
+$autoload['libraries'] = array('DX_Auth', 'Utilidades');
 
 
 /*

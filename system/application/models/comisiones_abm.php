@@ -11,7 +11,7 @@ class comisiones_abm extends Model {
     {
 		$this->load->database();
 		$datos = array (
-			'FECHAFACTURA' => $arreglo_post["campofechafactura"],
+			'FECHAFACTURA' => $this->utilidades->fecha_mysql($arreglo_post["campofechafactura"]),
 			'NROFAC' => $arreglo_post["camponumerofac"],
 			'IDCLIENTE' => $arreglo_post["campocliente"],
 			'PXCOSTO' => $arreglo_post["campopreciocosto"],
