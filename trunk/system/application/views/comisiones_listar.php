@@ -31,7 +31,7 @@
 				
         <tr>
 			<td width="30">&nbsp;</td>
-			<td width="300"><?=$row->FECHAFACTURA?></td>
+			<td width="150"><?=$this->utilidades->fecha_normal($row->FECHAFACTURA)?></td>
 			<td width="100"><?=$row->NROFAC?></td>
 			<td width="100"><?=$row->PXCOSTO?></td>
 			<td width="100"><?=$row->PXVENTA?></td>
