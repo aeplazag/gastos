@@ -39,11 +39,18 @@
 
 	function resultadomes(data,$e){
 		var str = "";
+		var anio = "";
+		var mes = "";
 		for(key in data) {
 			str += " " + key + ": " + data[key]+ "; ";
 		}
+		anio = data["year"];
+		mes = data["month"];
+		window.location.replace("<?=site_url("comisiones/listar_mes")?>/"+anio+"/"+mes);
+		/*
 		var selector = "#mensaje";
 		jQuery(selector).prepend("{" + str + "};<br />").show();
+		*/
 	}
 
 	jQuery(function(){
@@ -51,7 +58,8 @@
 		$("a[rel='colorboxLink']").colorbox({
 			title:false,
 			photo:false,
-			slideshow:false
+			slideshow:false,
+			rel:'nofollow'
 		});
 		
 		jQuery('ul.sf-menu').superfish();
