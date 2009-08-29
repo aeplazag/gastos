@@ -58,4 +58,28 @@ class Clientes extends Controller {
 			redirect('/auth', 'location', 301);
 		}		
 	}
+	
+	function ver($param_id) {
+		if ( $this->dx_auth->is_logged_in()) {
+			$data = array();
+			$this->load->model('clientes_abm');
+			$data["info_cliente"] = $this->clientes_abm->info_cliente($param_id);
+			$this->load->view('clientes_ver', $data);
+		}
+		else {
+			redirect('/auth', 'location', 301);
+		}		
+	}
+
+	function ver_small($param_id) {
+		if ( $this->dx_auth->is_logged_in()) {
+			$data = array();
+			$this->load->model('clientes_abm');
+			$data["info_cliente"] = $this->clientes_abm->info_cliente($param_id);
+			$this->load->view('clientes_ver_small', $data);
+		}
+		else {
+			redirect('/auth', 'location', 301);
+		}		
+	}
 }
