@@ -31,6 +31,25 @@ class comisiones_abm extends Model {
 		$query = $this->db->get('itexa_comision', $cantidad, $desde);	
 		return $query;
 	}
+
+	function obtener_comisiones_mes($param_anio, $param_mes) {
+		$this->db->order_by("FECHAFACTURA","ASC");
+		if ($param_mes == 0) {
+			$params = array(
+				'YEAR(FECHAFACTURA)' => $param_anio
+			);
+			$query = $this->db->get_where('itexa_comision', $params);
+			return $query;			
+		}
+		else {
+			$params = array(
+				'MONTH(FECHAFACTURA)' => $param_mes,
+				'YEAR(FECHAFACTURA)' => $param_anio
+			);
+			$query = $this->db->get_where('itexa_comision', $params);
+			return $query;
+		}
+	}
 	
 	function modificar ($arreglo_post, $param_id) {
 /*
