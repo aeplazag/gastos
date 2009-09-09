@@ -32,9 +32,9 @@
 <script type="text/javascript">
 
 	function stripeTables () {
-		$('table.zebra tbody tr:odd').addClass('zOdd');
-		$('table.zebra tbody tr:even').addClass('zEven');
-		$("table.zebra thead tr:first-child").addClass("zSelected");
+		jQuery('table.zebra tbody tr:odd').addClass('zOdd');
+		jQuery('table.zebra tbody tr:even').addClass('zEven');
+		jQuery("table.zebra thead tr:first-child").addClass("zSelected");
 	}
 
 	function resultadomes(data,$e){
@@ -66,6 +66,9 @@
 		stripeTables();
 
 		jQuery("#selectormes").monthpicker("2009-08",resultadomes);
+
+		$("table.zebra tbody tr:last-child").attr("class","");
+		$("table.zebra tbody tr:last-child").addClass("filatotales");
 		
 	});
 	

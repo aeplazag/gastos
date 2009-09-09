@@ -10,8 +10,6 @@
 		
 		<div id="selectormes" class="monthPicker"></div>
 		<br />
-		<div id="mensaje">&nbsp;</div>
-		<br />
 
 		<div style="width:95%;">
 

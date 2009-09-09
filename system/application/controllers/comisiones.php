@@ -33,6 +33,20 @@ class Comisiones extends Controller {
 		}	
 	}
 	
+	function listar_mes ($param_anio, $param_mes) {
+		if ( $this->dx_auth->is_logged_in()) {
+			$data = array();
+			$this->load->model('comisiones_abm');
+			$data['resultados'] = $this->comisiones_abm->obtener_comisiones_mes($param_anio, $param_mes);
+			$data['param_anio'] = $param_anio;
+			$data['param_mes'] = $param_mes;
+			$this->load->view('comisiones_listar_mes', $data);		
+		}
+		else {
+			redirect('/auth', 'location', 301);
+		}			
+	}
+	
 	function agregar() {
 		if ( $this->dx_auth->is_logged_in()) {
 			if (isset($_POST["campofechafactura"])) {
