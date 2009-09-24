@@ -16,7 +16,12 @@
 				</ul>
 			</li>
 
-			<li><a href="<?=site_url('gastos')?>">Gastos</a></li>
+			<li><a href="<?=site_url('gastosvarios')?>">Gastos</a>
+				<ul>
+					<li><a href="<?=site_url('gastosvarios')?>">Gastos Varios</a></li>
+					<li><a href="<?=site_url('gastosfijos')?>">Gastos Fijos</a></li>
+				</ul>			
+			</li>
 
 
 			<? if ( $this->dx_auth->is_logged_in()) { ?>
