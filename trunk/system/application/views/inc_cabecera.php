@@ -66,9 +66,6 @@
 		stripeTables();
 
 		jQuery("#selectormes").monthpicker("2009-08",resultadomes);
-
-		$("table.zebra tbody tr:last-child").attr("class","");
-		$("table.zebra tbody tr:last-child").addClass("filatotales");
 		
 	});
 	

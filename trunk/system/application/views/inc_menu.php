@@ -20,6 +20,8 @@
 				<ul>
 					<li><a href="<?=site_url('gastosvarios')?>">Gastos Varios</a></li>
 					<li><a href="<?=site_url('gastosfijos')?>">Gastos Fijos</a></li>
+					<li><a href="<?=site_url('gastosvarios/agregar')?>">Agregar Gastos Varios</a></li>
+					<li><a href="<?=site_url('gastosfijos/agregar')?>">Agregar Gastos Fijos</a></li>
 				</ul>			
 			</li>
 
