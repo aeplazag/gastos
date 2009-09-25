@@ -3,19 +3,11 @@
 ?>
 
 <script type="text/javascript">
-
-	var url_boton;	
-
-	function eliminar(id) {
-		//jQuery(".botoneliminar").click(function() {
-		//url_boton = jQuery(".botoneliminar").attr('href');
-		url_boton = '<?=site_url('gastos/eliminar/')?>/'+id;
-		jQuery('#divdialogo').dialog('open');
-		//});
-	}
-
+	
 	jQuery(document).ready(function(){	
 		
+		var url_boton;
+	
 		jQuery("#divdialogo").dialog({
 			bgiframe: true,
 			autoOpen: false,
@@ -40,11 +32,17 @@
 			}
 		});		
 	
-		jQuery("table.zebra tbody tr:last-child").attr("class","");
-		jQuery("table.zebra tbody tr:last-child").addClass("filatotales");
+		jQuery(".botoneliminar").click(function() {
+			url_boton = jQuery(".botoneliminar").attr('href');
+			jQuery('#divdialogo').dialog('open');
+			return false;
+		});
+
+		//jQuery("table.zebra tbody tr:last-child").attr("class","");
+		//jQuery("table.zebra tbody tr:last-child").addClass("filatotales");
 
 	});	
-		
+	
 </script>
 
 <div id="divdialogo" title="Eliminar item?">
@@ -53,9 +51,9 @@
 
 	<div class="grid_12" id="cuerpo">
 
-		<h2>Gastos Fijos</h2>
+		<h2>Gastos Varios</h2>
 		
-		<p>Listado de Gastos Fijos Mensuales</p>
+		<p>Listado de Gastos Varios</p>
 		
 		<div style="width:95%;">
 
@@ -80,10 +78,10 @@
 		?>
 				
         <tr>
-			<td><a href="<?=site_url('gastos/modificar/'.$row->ID)?>"><img border="0" src="<?=$dir_views?>/images/iconomod.png" alt="Modificar" /></a></td>
-			<td><a href="JavaScript:eliminar(<?=$row->ID?>);"><img class="botoneliminar" border="0" src="<?=$dir_views?>/images/iconodel.png" alt="Eliminar" /></a></td>
+			<td><a href="<?=site_url('gastosfijos/modificar/'.$row->ID)?>"><img border="0" src="<?=$dir_views?>/images/iconomod.png" alt="Modificar" /></a></td>
+			<td><a class="botoneliminar" href="<?=site_url('gastosfijos/eliminar/'.$row->ID)?>"><img class="botoneliminar" border="0" src="<?=$dir_views?>/images/iconodel.png" alt="Eliminar" /></a></td>
 			<td><?=$row->NOMBRE?></td>
-			<td><? $total += $row->MONTO; ?><?=$row->MONTO?></td>
+			<td><?=$row->MONTO?></td>
 			<td><?=$this->utilidades->fecha_normal($row->FECHA)?></td>
 			<td><?=$row->OBSERVACIONES?></td>
   		</tr>
@@ -91,15 +89,6 @@
 		<?
 			}
 		?>
-		
-        <tr>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td><?=$total?></td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-  		</tr>
 		
 		</tbody>
 		</table>
