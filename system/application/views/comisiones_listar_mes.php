@@ -2,6 +2,15 @@
 	include("inc_cabecera.php");
 ?>
 
+<script type="text/javascript">
+
+	$(document).ready(function(){
+		$("table.zebra tbody tr:last-child").attr("class","");
+		$("table.zebra tbody tr:last-child").addClass("filatotales");
+	});
+	
+</script>
+
 	<div class="grid_12" id="cuerpo">
 
 		<h2>Comisiones</h2>
