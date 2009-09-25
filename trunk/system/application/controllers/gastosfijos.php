@@ -42,45 +42,62 @@ class Gastosfijos extends Controller {
 	}
 	
 	function agregar() {
-		if (isset($_POST["campofecha"])) {
-			$post = array (
-				'campofecha' => $_POST["campofecha"],
-				'camponombre' => $_POST["camponombre"],
-				'campomonto' => $_POST["campomonto"],
-				'campoobservaciones' => $_POST["campoobservaciones"]
-			);
-			$this->load->model('gastosfijos_abm');
-			$this->gastosfijos_abm->agregar($post);				
-			$this->load->view('gastosfijos_agregar_post');
+		if ( $this->dx_auth->is_logged_in()) {
+			if (isset($_POST["campofecha"])) {
+				$post = array (
+					'campofecha' => $_POST["campofecha"],
+					'camponombre' => $_POST["camponombre"],
+					'campomonto' => $_POST["campomonto"],
+					'campoobservaciones' => $_POST["campoobservaciones"]
+				);
+				$this->load->model('gastosfijos_abm');
+				$this->gastosfijos_abm->agregar($post);				
+				$this->load->view('gastosfijos_agregar_post');
+			}
+			else {
+				$this->load->model('gastosfijos_abm');
+				$data["arreglo_gastosfijos"] = $this->gastosfijos_abm->listado_gastosfijos();
+				$this->load->view('gastosfijos_agregar', $data);
+			}
 		}
 		else {
-			$this->load->model('gastosfijos_abm');
-			$data["arreglo_gastosfijos"] = $this->gastosfijos_abm->listado_gastosfijos();
-			$this->load->view('gastosfijos_agregar', $data);
+			redirect('/auth', 'location', 301);
 		}
 	}
 	
 	function modificar($idgasto) {
-		if (isset($_POST["campofecha"])) {
-			$post = array (
-				'FECHA' => $this->utilidades->fecha_mysql($_POST["campofecha"]),
-				'NOMBRE' => $_POST["camponombre"],
-				'MONTO' => $_POST["campomonto"],
-				'OBSERVACIONES' => $_POST["campoobservaciones"]
-			);
-			$this->load->model('gastosfijos_abm');
-			$this->gastosfijos_abm->modificar($post, $idgasto);				
-			$this->load->view('gastosfijos_agregar_post');
+		if ( $this->dx_auth->is_logged_in()) {
+			if (isset($_POST["campofecha"])) {
+				$post = array (
+					'FECHA' => $this->utilidades->fecha_mysql($_POST["campofecha"]),
+					'NOMBRE' => $_POST["camponombre"],
+					'MONTO' => $_POST["campomonto"],
+					'OBSERVACIONES' => $_POST["campoobservaciones"]
+				);
+				$this->load->model('gastosfijos_abm');
+				$this->gastosfijos_abm->modificar($post, $idgasto);				
+				$this->load->view('gastosfijos_agregar_post');
+			}
+			else {
+				$this->load->model('gastosfijos_abm');
+				$data["arreglo_gastosfijos"] = $this->gastosfijos_abm->obtener_gasto($idgasto);
+				$this->load->view('gastosfijos_modificar', $data);
+			}		
 		}
 		else {
-			$this->load->model('gastosfijos_abm');
-			$data["arreglo_gastosfijos"] = $this->gastosfijos_abm->obtener_gasto($idgasto);
-			$this->load->view('gastosfijos_modificar', $data);
-		}		
+			redirect('/auth', 'location', 301);
+		}
 	}
 	
 	function eliminar($idgasto) {
-		
+		if ( $this->dx_auth->is_logged_in()) {
+			$this->load->model('gastosfijos_abm');
+			$this->gastosfijos_abm->eliminar($idgasto);
+			$this->load->view('gastosfijos_eliminar_post');
+		}
+		else {
+			redirect('/auth', 'location', 301);
+		}
 	}
 	
 }

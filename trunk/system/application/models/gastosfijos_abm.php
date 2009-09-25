@@ -40,10 +40,8 @@ class gastosfijos_abm extends Model {
 	}
 
 	function eliminar($param_id) {
-/*
 		$this->db->where('id', $param_id);
-		$this->db->delete('eon_rubro'); 
-*/		
+		$this->db->delete('itexa_gastosfijos'); 
 	}
 	
 	function cantidad() {
