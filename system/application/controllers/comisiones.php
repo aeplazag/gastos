@@ -11,6 +11,7 @@ class Comisiones extends Controller {
 	}
 	
 	function listar($pagina = 0) {
+	/*
 		if ( $this->dx_auth->is_logged_in()) {
 
 			$data = array();
@@ -31,6 +32,10 @@ class Comisiones extends Controller {
 		else {
 			redirect('/auth', 'location', 301);
 		}	
+	*/
+		$anio = date("Y");
+		$mes = date("n");
+		redirect("/comisiones/listar_mes/$anio/$mes", "location", 301);		
 	}
 	
 	function listar_mes ($param_anio, $param_mes) {

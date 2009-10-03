@@ -16,9 +16,9 @@
 				</ul>
 			</li>
 
-			<li><a href="<?=site_url('gastosvarios')?>">Gastos</a>
+			<li><a href="<?=site_url('gastos/seleccionar_agregar')?>">Gastos</a>
 				<ul>
-					<li><a href="<?=site_url('gastos/listar/varios')?>">Gastos Varios</a></li>
+					<li><a href="<?=site_url('gastos')?>">Gastos Varios</a></li>
 					<li><a href="<?=site_url('gastos/listar/fijos')?>">Gastos Fijos</a></li>
 					<li><a href="<?=site_url('gastos/seleccionar_agregar')?>">Agregar Gastos</a></li>
 				</ul>			
