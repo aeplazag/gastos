@@ -20,6 +20,7 @@
 		<fieldset><legend>Por favor complete el siguiente formulario. Tenga en cuenta los campos obligatorios.<br />Los numeros deben ser ingresados sin simbolo $ y con coma en caso de ser numeros con decimal</legend>
 		
 		<?php 
+			//$att = array('class' => 'formular', 'id' => 'formagregar');
 			echo form_open($this->uri->uri_string());
 		?>
 			<dl>

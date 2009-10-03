@@ -4,7 +4,21 @@
 
 <script type="text/javascript">
 
+	function resultadomes(data,$e){
+		var str = "";
+		var anio = "";
+		var mes = "";
+		for(key in data) {
+			str += " " + key + ": " + data[key]+ "; ";
+		}
+		anio = data["year"];
+		mes = data["month"];
+		window.location.replace("<?=site_url("comisiones/listar_mes")?>/"+anio+"/"+mes);
+	}
+
 	$(document).ready(function(){
+		jQuery("#selectormes").monthpicker("<?=$param_anio?>-<?=$param_mes?>",resultadomes);
+
 		$("table.zebra tbody tr:last-child").attr("class","");
 		$("table.zebra tbody tr:last-child").addClass("filatotales");
 	});
@@ -16,7 +30,7 @@
 		<h2>Comisiones</h2>
 		
 		<!--<p>A continuaci&oacute;n se listan las comisiones correspondientes al mes <strong><? echo $this->utilidades->mescadena($param_mes); ?></strong> de <strong><?=$param_anio?></strong></p>-->
-		<h3>Totales de: </h3><h4>
+		<h3>Comisiones Totales de: </h3><h4>
 		<? if ($param_mes == 0) { ?>
 			Todo el a&ntilde;o <?=$param_anio?></h4><br />
 		<? } else { ?>

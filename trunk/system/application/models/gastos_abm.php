@@ -45,6 +45,14 @@ class gastos_abm extends Model {
 		return $query;
 	}
 
+	function obtener_gastos_mes($anio, $mes) {
+		$this->db->order_by("FECHA","ASC");
+		$this->db->where('TIPO', 1);
+		//$query = $this->db->get('itexa_gastos');
+		$query = $this->db->get_where('itexa_gastos', array('YEAR(FECHA)' => $anio, 'MONTH(FECHA)' => $mes));
+		return $query;
+	}
+
 	function listado_gastos($tipo) {
 		$this->db->order_by("NOMBRE","ASC");
 		if ($tipo == 'varios') {
@@ -57,7 +65,7 @@ class gastos_abm extends Model {
 		return $query;
 	}
 	
-	function modificar ($arreglo_post, $param_id) {
+	function modificar($arreglo_post, $param_id) {
 		$this->db->where('id', $param_id);
 		$this->db->update('itexa_gastos', $arreglo_post);
 	}

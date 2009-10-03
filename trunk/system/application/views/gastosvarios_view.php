@@ -3,11 +3,29 @@
 ?>
 
 <script type="text/javascript">
+
+	var url_boton;	
+
+	function eliminar(id) {
+		url_boton = '<?=site_url('gastos/eliminar/')?>/'+id;
+		jQuery('#divdialogo').dialog('open');
+	}
 	
+	function resultadomesgastos(data,$e){
+		var str = "";
+		var anio = "";
+		var mes = "";
+		for(key in data) {
+			str += " " + key + ": " + data[key]+ "; ";
+		}
+		anio = data["year"];
+		mes = data["month"];
+		window.location.replace("<?=site_url("gastos/listar_mes")?>/"+anio+"/"+mes);
+	}
+
+
 	jQuery(document).ready(function(){	
 		
-		var url_boton;
-	
 		jQuery("#divdialogo").dialog({
 			bgiframe: true,
 			autoOpen: false,
@@ -32,17 +50,15 @@
 			}
 		});		
 	
-		jQuery(".botoneliminar").click(function() {
-			url_boton = jQuery(".botoneliminar").attr('href');
-			jQuery('#divdialogo').dialog('open');
-			return false;
-		});
-
-		//jQuery("table.zebra tbody tr:last-child").attr("class","");
-		//jQuery("table.zebra tbody tr:last-child").addClass("filatotales");
+		jQuery("#selectormes_gastos").monthpicker("<?=$param_anio?>-<?=$param_mes?>",resultadomesgastos);		
+		
+		<? if (isset($listarpormes)) { ?>
+		jQuery("table.zebra tbody tr:last-child").attr("class","");
+		jQuery("table.zebra tbody tr:last-child").addClass("filatotales");
+		<? } ?>
 
 	});	
-	
+		
 </script>
 
 <div id="divdialogo" title="Eliminar item?">
@@ -53,7 +69,16 @@
 
 		<h2>Gastos Varios</h2>
 		
-		<p>Listado de Gastos Varios</p>
+		<!--<p>Listado de Gastos Varios. Por favor seleccione el mes para el cual desea conocer los gastos</p>-->
+		<h3>Totales del mes de: </h3><h4>
+		<? if ($param_mes == 0) { ?>
+			Todo el a&ntilde;o <?=$param_anio?></h4><br />
+		<? } else { ?>
+			<? echo $this->utilidades->mescadena($param_mes); ?> de <?=$param_anio?></h4><br />
+		<? } ?>
+		
+		<div id="selectormes_gastos" class="monthPicker"></div>
+		<br />
 		
 		<div style="width:95%;">
 
@@ -78,10 +103,10 @@
 		?>
 				
         <tr>
-			<td><a href="<?=site_url('gastosfijos/modificar/'.$row->ID)?>"><img border="0" src="<?=$dir_views?>/images/iconomod.png" alt="Modificar" /></a></td>
-			<td><a class="botoneliminar" href="<?=site_url('gastosfijos/eliminar/'.$row->ID)?>"><img class="botoneliminar" border="0" src="<?=$dir_views?>/images/iconodel.png" alt="Eliminar" /></a></td>
+			<td><a href="<?=site_url('gastos/modificar/'.$row->ID)?>"><img border="0" src="<?=$dir_views?>/images/iconomod.png" alt="Modificar" /></a></td>
+			<td><a href="JavaScript:eliminar(<?=$row->ID?>);"><img class="botoneliminar" border="0" src="<?=$dir_views?>/images/iconodel.png" alt="Eliminar" /></a></td>
 			<td><?=$row->NOMBRE?></td>
-			<td><?=$row->MONTO?></td>
+			<td><? $total += $row->MONTO; ?><?=$row->MONTO?></td>
 			<td><?=$this->utilidades->fecha_normal($row->FECHA)?></td>
 			<td><?=$row->OBSERVACIONES?></td>
   		</tr>
@@ -90,12 +115,27 @@
 			}
 		?>
 		
+		<? if (isset($listarpormes)) { ?>
+        <tr>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td><?=$total?></td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+  		</tr>		
+		<? } ?>
+		
 		</tbody>
 		</table>
 
 		</div>
 		
-		<?=$pagination_links?>
+		<?
+			if (!isset($listarpormes)) {
+				echo $pagination_links;
+			}				
+		?>
 
 	
 	<!-- Fin Contenedor Cuerpo -->

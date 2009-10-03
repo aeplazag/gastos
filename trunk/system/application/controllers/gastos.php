@@ -8,6 +8,10 @@ class Gastos extends Controller {
 	}
 	
 	function index() {
+		// obtiene el mes y el año actual
+		$anio = date("Y");
+		$mes = date("n");
+		redirect("/gastos/listar_mes/$anio/$mes", "location", 301);
 	}
 	
 	function seleccionar_agregar() {
@@ -48,6 +52,20 @@ class Gastos extends Controller {
 		else {
 			redirect('/auth', 'location', 301);
 		}	
+	}
+	
+	function listar_mes($anio, $mes) {
+		if ( $this->dx_auth->is_logged_in()) {
+			$this->load->model('gastos_abm');
+			$data['resultados'] = $this->gastos_abm->obtener_gastos_mes($anio, $mes);
+			$data['listarpormes'] = true;
+			$data['param_anio'] = $anio;
+			$data['param_mes'] = $mes;
+			$this->load->view('gastosvarios_view', $data);
+		}
+		else {
+			redirect('/auth', 'location', 301);
+		}
 	}
 
 	function agregar($tipo) {
